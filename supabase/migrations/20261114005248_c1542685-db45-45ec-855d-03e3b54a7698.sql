@@ -1,0 +1,1 @@
+DROP FUNCTION IF EXISTS public.add_farm_member(uuid, text, public.farm_role, text[]);

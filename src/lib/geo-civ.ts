@@ -1,0 +1,5 @@
+// Contour simplifié de la Côte d'Ivoire (source : world.geo.json, domaine public),
+// projeté en coordonnées SVG. Les villes servent uniquement de repères visuels.
+export const CIV_VIEWBOX = "0 0 400 410";
+export const CIV_PATH = "M380.5,366.2 L350.4,366.8 L304.2,353.9 L261.8,354.6 L183.3,366.2 L137.3,385.3 L71.8,409.6 L59.0,407.9 L64.1,353.3 L70.4,345.0 L68.4,319.0 L40.3,291.2 L19.3,286.8 L0.0,268.6 L14.4,239.2 L7.8,207.2 L10.8,187.9 L21.3,187.9 L25.2,159.0 L20.1,146.2 L26.4,137.0 L51.0,129.0 L34.7,76.0 L19.4,48.6 L24.7,26.2 L37.9,21.0 L46.6,15.0 L64.9,25.0 L116.0,25.5 L128.2,6.2 L139.6,7.5 L158.8,0.0 L169.0,28.3 L184.5,20.0 L211.8,10.2 L241.6,24.6 L253.1,46.5 L282.9,60.5 L306.1,43.8 L337.1,41.3 L382.4,58.4 L400.0,152.6 L372.1,208.2 L354.8,283.0 L383.5,340.0 L380.5,366.2Z";
+export const CIV_CITIES: Record<string, [number, number]> = {"Abidjan": [302.8, 342.0], "Yamoussoukro": [220.0, 245.3], "Bouaké": [236.6, 187.7], "Korhogo": [196.9, 70.5], "Man": [69.7, 206.2], "San-Pédro": [130.0, 382.3], "Daloa": [142.6, 241.3], "Odienné": [69.1, 67.1], "Bondoukou": [384.3, 164.5], "Ferkessédougou": [226.0, 61.2]};

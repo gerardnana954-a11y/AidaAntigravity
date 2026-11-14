@@ -1,0 +1,241 @@
+/*
+ * Tailwind v4 entry: config lives here, with no tailwind.config.js or PostCSS plugin.
+ * Keep every @import in this top block. Web fonts are loaded via <link> in src/routes/__root.tsx.
+ */
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * AÏDA design system.
+ * Palette : vert émeraude, vert clair, bleu nuit, blanc cassé, gris ardoise.
+ * Every color is an oklch token; components only use the semantic utilities below.
+ */
+
+@theme inline {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-deep: var(--primary-deep);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-soft: var(--destructive-soft);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-soft: var(--warning-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-night: var(--night);
+  --color-night-foreground: var(--night-foreground);
+  --color-night-muted: var(--night-muted);
+  --color-night-soft: var(--night-soft);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --shadow-soft: var(--shadow-soft-value);
+  --shadow-elevated: var(--shadow-elevated-value);
+  --shadow-glow: var(--shadow-glow-value);
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Brand */
+  --emerald: oklch(0.529 0.11 164.7); /* #087F5B */
+  --mint: oklch(0.949 0.031 162.2); /* #DDF5E8 */
+  --night: oklch(0.278 0.056 249.8); /* #102A43 */
+  --ivory: oklch(0.983 0.003 145.5); /* #F8FAF8 */
+  --slate: oklch(0.554 0.041 257.4); /* #64748B */
+
+  --background: var(--ivory);
+  --foreground: var(--night);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--night);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--night);
+
+  --primary: var(--emerald);
+  --primary-foreground: oklch(0.99 0.005 160);
+  --primary-deep: oklch(0.42 0.09 165);
+  --primary-glow: oklch(0.68 0.13 162);
+
+  --secondary: var(--mint);
+  --secondary-foreground: oklch(0.38 0.08 165);
+  --muted: oklch(0.962 0.006 160);
+  --muted-foreground: var(--slate);
+  --accent: var(--mint);
+  --accent-foreground: oklch(0.38 0.08 165);
+
+  --destructive: oklch(0.58 0.2 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --destructive-soft: oklch(0.95 0.03 25);
+  --warning: oklch(0.72 0.15 70);
+  --warning-foreground: oklch(0.42 0.1 60);
+  --warning-soft: oklch(0.96 0.045 85);
+  --info: oklch(0.55 0.12 245);
+  --info-soft: oklch(0.95 0.025 240);
+
+  --night-foreground: oklch(0.97 0.006 160);
+  --night-muted: oklch(0.72 0.03 250);
+  --night-soft: oklch(0.34 0.058 250);
+
+  --border: oklch(0.915 0.012 160);
+  --input: oklch(0.9 0.014 160);
+  --ring: var(--emerald);
+
+  --chart-1: var(--emerald);
+  --chart-2: oklch(0.68 0.13 162);
+  --chart-3: var(--night);
+  --chart-4: oklch(0.72 0.15 70);
+  --chart-5: oklch(0.55 0.12 245);
+
+  --sidebar: var(--night);
+  --sidebar-foreground: oklch(0.86 0.02 250);
+  --sidebar-primary: oklch(0.68 0.13 162);
+  --sidebar-primary-foreground: var(--night);
+  --sidebar-accent: oklch(0.33 0.058 250);
+  --sidebar-accent-foreground: oklch(0.98 0.005 160);
+  --sidebar-border: oklch(0.36 0.05 250);
+  --sidebar-ring: oklch(0.68 0.13 162);
+
+  --gradient-hero: linear-gradient(
+    100deg,
+    oklch(0.2 0.05 250 / 0.92) 0%,
+    oklch(0.24 0.055 250 / 0.7) 45%,
+    oklch(0.24 0.055 250 / 0.1) 100%
+  );
+  --gradient-emerald: linear-gradient(135deg, var(--primary-deep), var(--primary) 55%, var(--primary-glow));
+  --gradient-night: linear-gradient(160deg, oklch(0.3 0.06 250), var(--night) 60%, oklch(0.22 0.05 252));
+  --gradient-mint: linear-gradient(180deg, var(--mint), oklch(0.975 0.015 160));
+
+  --shadow-soft-value: 0 1px 2px oklch(0.278 0.056 249.8 / 0.04), 0 4px 16px -4px oklch(0.278 0.056 249.8 / 0.08);
+  --shadow-elevated-value: 0 2px 4px oklch(0.278 0.056 249.8 / 0.04), 0 18px 40px -12px oklch(0.278 0.056 249.8 / 0.18);
+  --shadow-glow-value: 0 10px 30px -10px oklch(0.529 0.11 164.7 / 0.55);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility bg-gradient-hero {
+  background-image: var(--gradient-hero);
+}
+
+@utility bg-gradient-emerald {
+  background-image: var(--gradient-emerald);
+}
+
+@utility bg-gradient-night {
+  background-image: var(--gradient-night);
+}
+
+@utility bg-gradient-mint {
+  background-image: var(--gradient-mint);
+}
+
+/* Subtle field-survey dot grid used on hero and map surfaces. */
+@utility bg-dots {
+  background-image: radial-gradient(oklch(0.529 0.11 164.7 / 0.16) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+@utility bg-dots-night {
+  background-image: radial-gradient(oklch(0.97 0.006 160 / 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@utility animate-rise {
+  animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-pulse-ring {
+  animation: pulse-ring 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
